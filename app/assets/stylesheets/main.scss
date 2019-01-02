@@ -1,5 +1,14 @@
+/* home */
 .body {
-  height: 70vh;
+  align-items: center;
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+}
+
+/* form */
+.form-signin {
+  width: 250px;
 }
 
 /* footer */
