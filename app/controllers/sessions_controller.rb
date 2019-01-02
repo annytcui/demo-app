@@ -2,9 +2,10 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(username: params[:session][:username])
     if user && user.authenticate(params[:session][:password])
-      # Log in
+      log_in user
+      redirect_to root_path
     else
-      flash[:danger] = "Invalid user or password."
+      flash.now[:danger] = "Invalid user or password."
       render 'static_pages/home'
     end
   end
