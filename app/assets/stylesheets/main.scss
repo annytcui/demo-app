@@ -1,3 +1,7 @@
+
+/* mixins, variables, etc. */
+$gray-medium-light: #eaeaea;
+
 /* home */
 .body {
   align-items: center;
@@ -13,7 +17,20 @@
 
 /* footer */
 .footer {
-  border-top: 1px solid #f2f2f2;
+  border-top: 1px solid $gray-medium-light;
   margin: 0 60px;
   padding: 5px;
+}
+
+/* miscellaneous */
+.debug_dump {
+  background-color: $gray-medium-light;
+  border: 1px solid $gray-medium-light;
+  border-radius: 10px;
+  box-sizing: border-box;
+  clear: both;
+  float: left;
+  padding: 10px;
+  width: 80%;
+  margin: 45px;
 }
