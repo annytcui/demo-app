@@ -3,11 +3,11 @@
     <h1 class="h3 mb-3 font-weight-normal">Please Sign in</h1>
     <div class="form-group">
       <%= f.label :username, class: 'sr-only' %>
-      <%= f.text_field :username, class: 'form-control', id: 'inputUsername', placeholder: 'Username', autofocus: true, required: true %>
+      <%= f.text_field :username, class: 'form-control', placeholder: 'Username', autofocus: true, required: true %>
     </div>
     <div class="form-group">
       <%= f.label :password, class: 'sr-only' %>
-      <%= f.password_field :password, class: 'form-control', id: 'inputPassword', placeholder: 'Password', autofocus: true, required: true %>
+      <%= f.password_field :password, class: 'form-control', placeholder: 'Password', autofocus: true, required: true %>
     </div>
     <%= f.submit "Sign in", class: 'btn btn-lg btn-primary btn-block'  %>
     <p class="mt-5 mb-3 text-muted">Demo App 2019</p>
