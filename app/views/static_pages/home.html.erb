@@ -1,8 +1,79 @@
-<% if logged_in? %>
-  <div class="container">
-  </div>
-<% else %>
-  <div class="body text-center">
+<div class="body text-center">
+  <% if logged_in? %>
+    <div class="container">
+
+      <div id="myNav" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <div class="closebtn">
+          <a href="javascript:void(0)" onclick="closeNav()">&times;</a>
+        </div>
+
+        <!-- Overlay content -->
+        <div class="overlay-content">
+          <div class="overlay-item" id="google">
+            <i class="fab fa-google icons-sidenav" onclick="addGoogle()"></i>
+            <h6>Google</h6>
+          </div>
+          <div class="overlay-item" id="glbrc">
+            <i class="fas fa-leaf icons-sidenav" onclick="addGlbrc()"></i>
+            <h6>GLBRC</h6>
+          </div>
+          <div class="overlay-item" id="wisc">
+            <i class="fas fa-university icons-sidenav" onclick="addWisc()"></i>
+            <h6>Wisc</h6>
+          </div>
+          <div class="overlay-item" id="wei">
+            <i class="fas fa-leaf icons-sidenav wei-leaf" onclick="addWei()"></i>
+            <h6>WEI</h6>
+          </div>
+          <div class="overlay-item" id="twitter">
+            <i class="fab fa-twitter icons-sidenav" onclick="addTwitter()"></i>
+            <h6>Twitter</h6>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="grid-container" id="grid-container">
+
+        <div class="grid-item" id="google-grid" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" ondblclick="deleteGoogle()">
+          <i class="fab fa-google icons"></i>
+          <h5>Google</h5>
+          <small class="text-muted">Search Engine</small>
+        </div>
+
+        <div class="grid-item" id="glbrc-grid" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" ondblclick="deleteGlbrc()">
+          <i class="fas fa-leaf icons"></i>
+          <h5>GLBRC</h5>
+          <small class="text-muted">Great Lakes Bioenergy Research Center</small>
+        </div>
+
+        <div class="grid-item" id="plus-grid">
+          <i class="fas fa-plus icons" onclick="openNav()"></i>
+        </div>
+
+        <div class="grid-item" id="wisc-grid" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" ondblclick="deleteWisc()">
+          <i class="fas fa-university icons"></i>
+          <h5>Wisc</h5>
+          <small class="text-muted">UW homepage</small>
+        </div>
+
+        <div class="grid-item" id="wei-grid" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" ondblclick="deleteWei()">
+          <i class="fas fa-leaf icons wei-leaf"></i>
+          <h5>WEI</h5>
+          <small class="text-muted">Wisconsin Energy Institute</small>
+        </div>
+
+        <div class="grid-item" id="twitter-grid" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)" ondblclick="deleteTwitter()">
+          <i class="fab fa-twitter icons"></i>
+          <h5>GLBRC</h5>
+          <small class="text-muted">Twitter</small>
+        </div>
+      </div>
+    </div>
+
+  <% else %>
     <%= form_for(:session, url: login_path, html: {class: "form-signin"}) do |f| %>
       <h1 class="h3 mb-3 font-weight-normal">Please Sign in</h1>
       <div class="flash">
@@ -21,5 +92,97 @@
       <%= f.submit "Sign in", class: 'btn btn-lg btn-primary btn-block'  %>
       <p class="mt-5 mb-3 text-muted">Demo App 2019</p>
     <% end %>
-  </div>
-<% end %>
+  <% end %>
+</div>
+
+<script>
+  /* Open when someone clicks on the span element */
+  function openNav() {
+    document.getElementById("myNav").style.width = "500px";
+  }
+
+  /* Close when someone clicks on the "x" symbol inside the overlay */
+  function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+  }
+
+  /* Add icon to the grid list */
+  function addGoogle() {
+    document.getElementById("myNav").style.width = "0%";
+    document.getElementById("google").style.display = "none";
+    var item = document.getElementById("google-grid");
+    var plus = document.getElementById("plus-grid");
+    plus.parentNode.insertBefore(item, plus);
+    item.style.display = "flex";
+  }
+  function addGlbrc() {
+    document.getElementById("myNav").style.width = "0%";
+    document.getElementById("glbrc").style.display = "none";
+    var item = document.getElementById("glbrc-grid");
+    var plus = document.getElementById("plus-grid");
+    plus.parentNode.insertBefore(item, plus);
+    item.style.display = "flex";
+  }
+  function addWisc() {
+    document.getElementById("myNav").style.width = "0%";
+    document.getElementById("wisc").style.display = "none";
+    var item = document.getElementById("wisc-grid");
+    var plus = document.getElementById("plus-grid");
+    plus.parentNode.insertBefore(item, plus);
+    item.style.display = "flex";
+  }
+  function addWei() {
+    document.getElementById("myNav").style.width = "0%";
+    document.getElementById("wei").style.display = "none";
+    var item = document.getElementById("wei-grid");
+    var plus = document.getElementById("plus-grid");
+    plus.parentNode.insertBefore(item, plus);
+    item.style.display = "flex";
+  }
+  function addTwitter() {
+    document.getElementById("myNav").style.width = "0%";
+    document.getElementById("twitter").style.display = "none";
+    var item = document.getElementById("twitter-grid");
+    var plus = document.getElementById("plus-grid");
+    plus.parentNode.insertBefore(item, plus);
+    item.style.display = "flex";
+  }
+
+  /* Delete icon from the grid list */
+  function deleteGoogle() {
+    document.getElementById("google-grid").style.display = "none";
+    document.getElementById("google").style.display = "flex";
+  }
+  function deleteGlbrc() {
+    document.getElementById("glbrc-grid").style.display = "none";
+    document.getElementById("glbrc").style.display = "flex";
+  }
+  function deleteWisc() {
+    document.getElementById("wisc-grid").style.display = "none";
+    document.getElementById("wisc").style.display = "flex";
+  }
+  function deleteWei() {
+    document.getElementById("wei-grid").style.display = "none";
+    document.getElementById("wei").style.display = "flex";
+  }
+  function deleteTwitter() {
+    document.getElementById("twitter-grid").style.display = "none";
+    document.getElementById("twitter").style.display = "flex";
+  }
+
+  /* Drag and drop switch */
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+  function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    var item = document.getElementById(data);
+    var ele = document.getElementById(ev.target.id);
+    ele.parentNode.insertBefore(item, ele);
+  }
+
+</script>

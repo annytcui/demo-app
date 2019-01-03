@@ -10,7 +10,127 @@ $gray-medium-light: #eaeaea;
   justify-content: center;
 }
 .container {
-  height: 80vh;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.grid-container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 200px 200px;
+}
+.grid-item {
+  align-items: center;
+  background-color: #e6f7ff;
+  border: 1px solid $gray-medium-light;
+  border-radius: 15px;
+  box-sizing: border-box;
+  box-shadow: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: center;
+  padding: 5px;
+  width: 200px;
+  h5 {
+    margin-top: 10px;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.removebtn {
+  margin-top: 20px;
+  width: 650px;
+  text-align: right;
+}
+
+#google, #glbrc, #wisc-grid, #wei-grid, #twitter-grid {
+  display: none;
+}
+#plus-grid {
+  background-color: white;
+  border: 2px dashed $gray-medium-light;
+}
+
+/* layover nav */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  border-radius: 15px;
+  box-shadow: 30px;
+  height: 150px;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  centered: 50%;
+  background-color: rgba(242, 242, 242, 0.6); /* Black fallback color */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  /*transition: 1s;*/ /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+.overlay-content {
+  align-items: flex-end;
+  display: flex;
+  height: 100px;
+  flex-direction: row;
+  justify-content: center;
+  width: 400px;
+  h6 {
+    margin-top: 5px;
+  }
+}
+.overlay-item {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  justify-content: flex-end;
+  width: 100px;
+}
+.closebtn {
+  display: flex;
+  justify-content: flex-end;
+  a {
+    color: gray;
+    font-size: 20px;
+    margin-right: 15px;
+    text-decoration: none;
+  }
+}
+
+/* icons */
+.icons {
+  font-size: 100px;
+}
+.icons-sidenav {
+  font-size: 50px;
+  &:hover {
+    font-size: 60px;
+    transition: 0.2s;
+  }
+}
+.fa-google {
+  color: red;
+}
+.fa-leaf {
+  color: yellow;
+}
+.fa-plus, .fa-minus {
+  color: $gray-medium-light;
+  font-size: 60px;
+  &:hover {
+    color: gray;
+  }
+}
+.fa-university {
+  color: blue;
+}
+.fa-twitter {
+  color: purple;
+}
+.wei-leaf {
+  color: green;
 }
 
 /* form */
