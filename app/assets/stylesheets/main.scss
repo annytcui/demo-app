@@ -38,7 +38,7 @@ $gray-medium-light: #eaeaea;
     margin-top: 10px;
   }
   &:hover {
-    opacity: 0.8;
+    border: 6px solid $gray-medium-light;
   }
 }
 .removebtn {
